@@ -1,8 +1,7 @@
-ControlNet
-diffusers
 models
 test_images
-txt2mask
+embeddings
+datasets
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -16,7 +15,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+dist/ßS
 downloads/
 eggs/
 .eggs/
