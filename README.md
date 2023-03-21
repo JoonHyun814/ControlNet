@@ -1,9 +1,9 @@
-# ControlNet
+# ControlNet_diffusers
 
 
 ## Setting
 ```bash
-git clone https://github.com/JoonHyun814/ControlNet.git
+git clone https://github.com/JoonHyun814/ControlNet_diffusers.git
 cd ControlNet
 
 git clone https://github.com/lllyasviel/ControlNet.git
