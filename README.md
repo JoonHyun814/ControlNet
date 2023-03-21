@@ -3,6 +3,9 @@
 
 ## Setting
 ```bash
+git clone https://github.com/JoonHyun814/ControlNet.git
+cd ControlNet
+
 git clone https://github.com/lllyasviel/ControlNet.git
 
 git clone diffusers
