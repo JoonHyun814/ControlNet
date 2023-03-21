@@ -4,6 +4,7 @@
 ## Setting
 
 docker image: nvidia/cuda:11.3.0-base-ubuntu20.04
+
 python version: 3.8
 
 
