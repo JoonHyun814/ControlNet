@@ -2,6 +2,7 @@ models
 test_images
 embeddings
 datasets
+bashes
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
