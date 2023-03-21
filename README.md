@@ -1,4 +1,4 @@
-# ControlNet
+# ControlNet_diffusers
 
 
 ## Setting
