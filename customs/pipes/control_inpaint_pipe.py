@@ -626,6 +626,7 @@ class StableDiffusionControlNetInpaintPipeline(DiffusionPipeline):
         controlnet_hint: Optional[Union[torch.FloatTensor, np.ndarray, PIL.Image.Image]] = None,
         image: Union[torch.FloatTensor, PIL.Image.Image] = None,
         mask_image: Union[torch.FloatTensor, PIL.Image.Image] = None,
+        nsfw_filter = True
     ):
         r"""
         Function invoked when calling the pipeline for generation.
@@ -828,7 +829,8 @@ class StableDiffusionControlNetInpaintPipeline(DiffusionPipeline):
             image = self.decode_latents(latents)
 
             # 9. Run safety checker
-            image, has_nsfw_concept = self.run_safety_checker(image, device, prompt_embeds.dtype)
+            if nsfw_filter:
+                image, has_nsfw_concept = self.run_safety_checker(image, device, prompt_embeds.dtype)
 
             # 10. Convert to PIL
             image = self.numpy_to_pil(image)
@@ -837,9 +839,13 @@ class StableDiffusionControlNetInpaintPipeline(DiffusionPipeline):
             image = self.decode_latents(latents)
 
             # 9. Run safety checker
-            image, has_nsfw_concept = self.run_safety_checker(image, device, prompt_embeds.dtype)
+            if nsfw_filter:
+                image, has_nsfw_concept = self.run_safety_checker(image, device, prompt_embeds.dtype)
 
         if not return_dict:
             return (image, has_nsfw_concept)
 
-        return StableDiffusionPipelineOutput(images=image, nsfw_content_detected=has_nsfw_concept)
+        if nsfw_filter:
+            return StableDiffusionPipelineOutput(images=image, nsfw_content_detected=has_nsfw_concept)
+        else:
+            return StableDiffusionPipelineOutput(images=image, nsfw_content_detected=False)
