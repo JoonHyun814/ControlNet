@@ -2,9 +2,14 @@
 
 
 ## Setting
+
+docker image: nvidia/cuda:11.3.0-base-ubuntu20.04
+python version: 3.8
+
+
 ```bash
-git clone https://github.com/JoonHyun814/ControlNet.git
-cd ControlNet
+git clone https://github.com/JoonHyun814/ControlNet_diffusers.git
+cd ControlNet_diffusers
 
 git clone https://github.com/lllyasviel/ControlNet.git
 
@@ -13,7 +18,21 @@ cd diffusers
 git checkout 9a37409663a53f775fa380db332d37d7ea75c915
 pip install .
 cd ..
+
+apt-get install libglib2.0-0
+apt-get install -y libsm6 libxext6 libxrender-dev
+apt-get -y install libgl1-mesa-glx
+
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install -r requirements.txt
 ```
+
+## download model
+
+huggingface: lllyasviel/ControlNet/models
+
+
+
 
 ## Convert ControlNet.ckpt to diffusers format
 ```bash
