@@ -234,7 +234,7 @@ class ControlNet_img2img_Pipe(StableDiffusionControlNetPipeline):
         width = width or self.unet.config.sample_size * self.vae_scale_factor
 
         # 1. Control Embedding check & conversion
-        controlnet_hint = self.controlnet_hint_conversion(controlnet_hint, height, width, num_images_per_prompt)
+        controlnet_hint = self.controlnet_hint_conversion(controlnet_hint, height, width, 1)
 
         # 2. Check inputs. Raise error if not correct
         self.check_inputs(
